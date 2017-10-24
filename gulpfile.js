@@ -31,6 +31,7 @@ gulp.task('styles', function () {
     .pipe(uncss({
       html: ['dist/*.html', 'dist/**/*.html']
     }))
+    .pipe(uglify())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist/css/'));
 });
@@ -45,6 +46,7 @@ gulp.task('images', function () {
 gulp.task('templates', function distHTML() {
   return gulp.src('src/templates/*.pug')
     .pipe(pug())
+    .pipe(prettify())
     .pipe(gulp.dest('dist/'))
 });
 
@@ -53,6 +55,7 @@ gulp.task('scripts', function () {
     .pipe(babel({
       presets: ['env']
     }))
+    .pipe(uglify())
     .pipe(gulp.dest('dist/js/'))
 });
 
