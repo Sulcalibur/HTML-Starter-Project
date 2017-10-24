@@ -13,11 +13,26 @@
   "author": "Suleiman Leadbitter",
   "license": "ISC",
   "dependencies": {
+    "babel-core": "^6.26.0",
+    "browser-sync": "^2.18.13",
+    "browserify": "^14.5.0",
     "gulp": "^3.9.1",
+    "gulp-babel": "^7.0.0",
+    "gulp-browserify": "^0.5.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-data": "^1.2.1",
+    "gulp-imagemin": "^3.4.0",
     "gulp-postcss": "^7.0.0",
+    "gulp-prettify": "^0.5.0",
     "gulp-pug": "^3.3.0",
+    "gulp-sourcemaps": "^2.6.1",
     "gulp-stylus": "^2.6.0",
+    "gulp-uglify": "^3.0.0",
     "gulp-uncss": "^1.0.6",
+    "markdown-it": "^8.4.0",
     "postcss-svgo": "^2.1.6"
+  },
+  "devDependencies": {
+    "gulp-clean": "^0.3.2"
   }
 }
