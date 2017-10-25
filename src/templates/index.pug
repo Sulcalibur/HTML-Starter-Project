@@ -1,8 +1,12 @@
-doctype html
-html(lang="en")
-  head
-    title Site
+extends _layout/base
+append config
+  - var PageTitle = "Web Page"
+  - var PageSlug = "homepage"
+block body
   body
-    .container
-      h1 Up and Running!
-      p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti commodi magni corrupti quo rem? Quaerat nesciunt at sit dolor quia? Iusto accusamus consequatur fugiat itaque corrupti blanditiis commodi sunt unde, quaerat cumque odit nulla non ex atque illo iste officiis nostrum tempora exercitationem amet rem!
+    section(class=PageSlug)
+      .container
+        include _layout/header
+        h1 Up and Running Whoop!
+        p Lorem ipsum dolor, sit amet consectetur adipisicing elit. Deleniti commodi magni corrupti quo rem? Quaerat nesciunt at sit dolor quia? Iusto accusamus consequatur fugiat itaque corrupti blanditiis commodi sunt unde, quaerat cumque odit nulla non ex atque illo iste officiis nostrum tempora exercitationem amet rem!
+        include _layout/footer

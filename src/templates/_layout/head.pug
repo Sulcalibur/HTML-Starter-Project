@@ -1,0 +1,17 @@
+head
+  title #{PageTitle} / #{PageSlug}
+  meta(charset='utf-8')
+  meta(http-equiv='X-UA-Compatible', content='IE=edge')
+  meta(name='viewport', content='width=device-width, initial-scale=1')
+  meta(name='description', content='A description about this page')
+  //- This will only load in Googlefonts is specified in the config file
+  if GoogleFonts
+    link(href='https://fonts.googleapis.com/css?family=' + GoogleFonts, rel='stylesheet', type='text/css')
+  if MaterialIcons
+    link(href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet")
+  link(rel="stylesheet", href="css/style.css")
+  if jQuery
+    script(src='http://code.jquery.com/jquery-2.1.4.min.js')
+  if FontAwesome
+    script(src="https://use.fontawesome.com/5b2e7c1fce.js")
+  script(src='js/pre.js')

@@ -1,4 +1,9 @@
-doctype html
+//- Master Template page
+block config
+  include config
+  include _mixins
+doctype
 html(lang="en")
-  block settings
-  head
+  include head
+  block body
+    body Default Body Content

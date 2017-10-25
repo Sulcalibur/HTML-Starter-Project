@@ -1,0 +1,13 @@
+
+//-  Fillers
+
+mixin list(id, ...items)
+  ul(id=id)
+    each item in items
+      li= item
+
+mixin images(id, ...images)
+  ul(id=id)
+    each image in images
+      li 
+        img(src='img/' + image + '.jpg')
