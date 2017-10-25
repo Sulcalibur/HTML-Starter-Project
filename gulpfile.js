@@ -69,15 +69,13 @@ gulp.task('js', function () {
         this.emit('end');
       }
     }))
-    .pipe(babel({
-      presets: ['env']
-    }))
-    .pipe(concat('main.js'))
+    .pipe(babel())
+    // .pipe(concat('main.js'))
     .pipe(browserify())
-    .pipe(gulp.dest('dist/js'))
-    .pipe(rename({
-      suffix: '.min'
-    }))
+    // .pipe(gulp.dest('dist/js'))
+    // .pipe(rename({
+    //   suffix: '.min'
+    // }))
     // .pipe(uglify())
     .pipe(gulp.dest('dist/js'))
     .pipe(reload({stream:true}))
@@ -150,7 +148,7 @@ gulp.task('clean', function () {
 })
 
 
-gulp.task('default', function () {
+gulp.task('watch', function () {
   // gulp.watch('dist/*', ['clean']);
   browserSync.init({
     server: "dist"
@@ -161,3 +159,5 @@ gulp.task('default', function () {
   gulp.watch('src/images/**/*', ['image']);
   gulp.watch('src/fonts/**/*.svg', ['iconfont']);
 });
+
+gulp.task('default', ['js', 'stylus', 'pug', 'image', 'iconfont', 'watch']);
