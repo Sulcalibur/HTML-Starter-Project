@@ -34,7 +34,9 @@
     "gulp-stylus": "*",
     "gulp-uglify": "*",
     "gulp-uncss": "*",
+    "jeet": "^7.2.0",
     "lodash": "*",
+    "lost": "^8.2.1",
     "postcss-svgo": "*"
   },
   "dependencies": {

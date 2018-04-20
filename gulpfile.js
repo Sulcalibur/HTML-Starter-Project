@@ -1,38 +1,39 @@
-var gulp         = require('gulp'),
-    browserSync  = require('browser-sync').create(),
-    reload       = browserSync.reload,
-    plumber      = require('gulp-plumber'),
-    rename       = require('gulp-rename'),
-    sourcemaps   = require('gulp-sourcemaps'),
-    stylus       = require('gulp-stylus'),
-    csslint      = require('gulp-csslint'),
-    autoPrefixer = require('gulp-autoprefixer'),
-    // //if node version is lower than v.0.1.2
-    // require('es6-promise').polyfill(),
-    cssComb      = require('gulp-csscomb'),
-    cmq          = require('gulp-merge-media-queries'),
-    frontnote    = require('gulp-frontnote'),
-    browserify   = require('gulp-browserify'),
-    uglify       = require('gulp-uglify'),
-    prettify     = require('gulp-prettify'),
-    concat       = require('gulp-concat'),
-    imageMin     = require('gulp-imagemin'),
-    cache        = require('gulp-cache'),
-    iconfont     = require('gulp-iconfont'),
-    consolidate  = require('gulp-consolidate'),
-    notify       = require('gulp-notify'),
-    uncss        = require('gulp-uncss'),
-    pug          = require('gulp-pug'),
-    babel        = require('gulp-babel'),
-    postcss      = require('gulp-postcss'),
-    svgo         = require('postcss-svgo'),
-    clean        = require('gulp-clean')
-    ;
+var gulp = require('gulp'),
+  browserSync = require('browser-sync').create(),
+  reload = browserSync.reload,
+  plumber = require('gulp-plumber'),
+  rename = require('gulp-rename'),
+  sourcemaps = require('gulp-sourcemaps'),
+  stylus = require('gulp-stylus'),
+  csslint = require('gulp-csslint'),
+  autoPrefixer = require('gulp-autoprefixer'),
+  // //if node version is lower than v.0.1.2
+  // require('es6-promise').polyfill(),
+  cssComb = require('gulp-csscomb'),
+  cmq = require('gulp-merge-media-queries'),
+  frontnote = require('gulp-frontnote'),
+  browserify = require('gulp-browserify'),
+  uglify = require('gulp-uglify'),
+  prettify = require('gulp-prettify'),
+  concat = require('gulp-concat'),
+  imageMin = require('gulp-imagemin'),
+  cache = require('gulp-cache'),
+  iconfont = require('gulp-iconfont'),
+  consolidate = require('gulp-consolidate'),
+  notify = require('gulp-notify'),
+  uncss = require('gulp-uncss'),
+  pug = require('gulp-pug'),
+  babel = require('gulp-babel'),
+  postcss = require('gulp-postcss'),
+  svgo = require('postcss-svgo'),
+  clean = require('gulp-clean'),
+  jeet = require('jeet'),
+  lost = require('lost');
 
 
 
 gulp.task('stylus', function () {
-  gulp.src(['src/styles/**/*.styl'])
+  gulp.src(['src/styles/style.styl'])
     .pipe(sourcemaps.init())
     .pipe(plumber({
       handleError: function (err) {
@@ -47,7 +48,9 @@ gulp.task('stylus', function () {
     .pipe(stylus())
     .pipe(autoPrefixer())
     .pipe(cssComb())
-    .pipe(cmq({ log: true }))
+    .pipe(cmq({
+      log: true
+    }))
     .pipe(csslint())
     .pipe(csslint.formatter())
     .pipe(uncss({
@@ -56,7 +59,9 @@ gulp.task('stylus', function () {
     // .pipe(uglify())
     .pipe(sourcemaps.write())
     .pipe(gulp.dest('dist/css'))
-    .pipe(reload({ stream: true }))
+    .pipe(reload({
+      stream: true
+    }))
     .pipe(notify('css task finished'))
 });
 
@@ -78,7 +83,9 @@ gulp.task('js', function () {
     // }))
     // .pipe(uglify())
     .pipe(gulp.dest('dist/js'))
-    .pipe(reload({stream:true}))
+    .pipe(reload({
+      stream: true
+    }))
     .pipe(notify('js task finished'))
 });
 gulp.task('pug', function () {
@@ -92,7 +99,9 @@ gulp.task('pug', function () {
     .pipe(pug())
     .pipe(prettify())
     .pipe(gulp.dest('dist/'))
-    .pipe(reload({stream:true}))
+    .pipe(reload({
+      stream: true
+    }))
     .pipe(notify('html task finished'))
 });
 
@@ -100,15 +109,19 @@ gulp.task('pug', function () {
 gulp.task('image', function () {
   gulp.src(['src/images/**/*'])
     .pipe(plumber({
-      handleError: function (err) {
-        console.log(err);
-        this.emit('end');
-      }
-    })
-    .pipe(cache(imageMin({ optimizationLevel: 5 })))
-    .pipe(gulp.dest('dist/img'))
-    .pipe(reload({stream:true}))
-    .pipe(notify('image task finished')))
+        handleError: function (err) {
+          console.log(err);
+          this.emit('end');
+        }
+      })
+      .pipe(cache(imageMin({
+        optimizationLevel: 5
+      })))
+      .pipe(gulp.dest('dist/img'))
+      .pipe(reload({
+        stream: true
+      }))
+      .pipe(notify('image task finished')))
 });
 
 
@@ -139,11 +152,15 @@ gulp.task('iconfont', function () {
         .pipe(gulp.dest('dist/fonts/template'));
     })
     .pipe(gulp.dest('dist/fonts'))
-    .pipe(reload({stream:true}))
+    .pipe(reload({
+      stream: true
+    }))
 });
 
 gulp.task('clean', function () {
-  return gulp.src('dist/*', { read: false })
+  return gulp.src('dist/*', {
+      read: false
+    })
     .pipe(clean());
 })
 
