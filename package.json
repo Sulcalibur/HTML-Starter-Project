@@ -25,7 +25,7 @@
     "gulp-imagemin": "*",
     "gulp-merge-media-queries": "*",
     "gulp-notify": "*",
-    "gulp-plumber": "^1.1.0",
+    "gulp-plumber": "^1.2.1",
     "gulp-postcss": "*",
     "gulp-prettify": "*",
     "gulp-pug": "*",
