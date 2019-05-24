@@ -15,7 +15,7 @@
     "gulp-babel": "*",
     "gulp-browserify": "*",
     "gulp-cache": "*",
-    "gulp-clean": "^0.3.2",
+    "gulp-clean": "^0.4.0",
     "gulp-concat": "*",
     "gulp-consolidate": "*",
     "gulp-csscomb": "*",
